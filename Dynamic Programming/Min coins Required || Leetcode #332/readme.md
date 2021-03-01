@@ -45,3 +45,6 @@ Constraints:
 - 1 <= coins.length <= 12
 - 1 <= coins[i] <= 231 - 1
 - 0 <= amount <= 104
+
+
+<img src="https://github.com/vasvi-sood/Algorithms/blob/main/Dynamic%20Programming/Min%20coins%20Required%20%7C%7C%20Leetcode%20%23332/Question.png"></img>
