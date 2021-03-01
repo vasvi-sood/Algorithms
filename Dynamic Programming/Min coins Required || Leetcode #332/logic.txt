@@ -1,0 +1,4 @@
+Supoose n cricketers  bat to get the desired runs.
+The logic followed is if 1 more cricketer bats he has two choices either bat or not.
+If he does not bat the remaing sum must be scored by previous team.
+If he bats and scores n runs remaing runs must be scored by origional team.
