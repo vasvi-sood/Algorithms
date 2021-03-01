@@ -7,3 +7,5 @@ n numbers a1, a2, a3.... an
 target number
 ### Output
 Yes if the target sum can be formed from given numbers, No otherwise
+
+<img src="https://github.com/vasvi-sood/Algorithms/blob/main/Dynamic%20Programming/Target%20Sum/Question.png">
