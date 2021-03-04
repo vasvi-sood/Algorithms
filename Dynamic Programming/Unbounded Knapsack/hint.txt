@@ -1,0 +1,2 @@
+If in solving a dp problem, the objects of each type are infinite, we make a 1-D array. Because previous computations must be considered.
+Whereas if there is exactly 1 object of each type we use a 2-D DP array
