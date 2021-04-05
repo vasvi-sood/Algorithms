@@ -4,7 +4,7 @@ Given a m x n grid filled with non-negative numbers, find a path from top left t
 Note: You can only move either down or right at any point in time.
 
 #### Example
-<img src="https://github.com/vasvi-sood/Algorithms/blob/main/Dynamic%20Programming/Minimum%20Cost%20Path%20%7C%7C%20Leetcode%20%2364/Question.png"></img>
+<img src="Question.png"></img>
 
 #### Input: grid = [[1,3,1],[1,5,1],[4,2,1]]
 
