@@ -79,3 +79,73 @@ public:
  * int param_1 = obj->get(key);
  * obj->put(key,value);
  */
+
+//Improved
+class LRUCache
+{
+    list<int> lru; //double linked list
+    unordered_map<int, list<int>::iterator> keyptr;
+    unordered_map<int, int> mp; //key to value
+    int cap = 0;
+
+public:
+    LRUCache(int capacity)
+    {
+        cap = capacity;
+    }
+
+    int get(int key)
+    {
+        if (mp.find(key) == mp.end())
+            return -1;
+        list<int>::iterator i = keyptr[key];
+        // cout<<" erasing "<<*i<<" ";
+        lru.erase(i);
+
+        lru.push_front(key);
+        keyptr[key] = lru.begin();
+        return mp[key];
+    }
+
+    void put(int key, int value)
+    {
+        if (mp.find(key) == mp.end())
+        {
+            if (lru.size() < cap)
+            {
+                lru.push_front(key);
+                mp[key] = value;
+                keyptr[key] = lru.begin();
+            }
+
+            else
+            {
+
+                auto ky = lru.back();
+                lru.pop_back();
+                mp.erase(ky);
+                keyptr.erase(ky);
+
+                lru.push_front(key);
+                mp[key] = value;
+                keyptr[key] = lru.begin();
+            }
+        }
+
+        else
+        {
+            list<int>::iterator i = keyptr[key];
+            lru.erase(i);
+            lru.push_front(key);
+            keyptr[key] = lru.begin();
+            mp[key] = value;
+        }
+    }
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache* obj = new LRUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */
