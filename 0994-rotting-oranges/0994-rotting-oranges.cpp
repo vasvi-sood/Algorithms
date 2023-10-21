@@ -12,6 +12,7 @@ public:
         }
         queue<vector<int>> q;
         //travel each node on grid that is rotten
+        int cntfresh=0;
         for(int i=0;i<grid.size();i++)
             for(int j=0;j<grid[0].size();j++)
             {
@@ -20,9 +21,12 @@ public:
                    q.push({i,j,0});
                    visit[i][j]=1;
                }
+              else  if(grid[i][j]==1)
+                  cntfresh++;
             }
          int mx=0;
         // cout<<visit.size()<<" "<<visit[0].size()<<"\n";
+        int cnt=0;
         while(!q.empty())
         {
             vector<int> parent=q.front();
@@ -36,38 +40,33 @@ public:
             {
                 q.push({i+1,j,minutes+1});
                 visit[i+1][j]=1;
+                cnt++;
             }
             if(j+1<grid[0].size() && grid[i][j+1]==1 && visit[i][j+1]==0)
             {
                 q.push({i,j+1,minutes+1});
                 visit[i][j+1]=1;
+                cnt++;
             }
             if(i-1>=0 && grid[i-1][j]==1 && visit[i-1][j]==0)
             {
                 q.push({i-1,j,minutes+1});
                 visit[i-1][j]=1;
+                cnt++;
             }
              if(j-1>=0 && grid[i][j-1]==1 && visit[i][j-1]==0)
             {
                 q.push({i,j-1,minutes+1});
                 visit[i][j-1]=1;
+                 cnt++;
             }
         }
         
        
-         for(int i=0;i<grid.size();i++)
-         {
-             for(int j=0;j<grid[0].size();j++)
-             {
-                 if(grid[i][j]==1)
-                 {
-                     if(visit[i][j]==0)
+       if(cnt!=cntfresh)
                      return -1;
                      
-                 }
-                
-             }
-         }
+              
         
         return mx;
     }
