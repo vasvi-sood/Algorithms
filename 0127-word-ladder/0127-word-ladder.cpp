@@ -36,7 +36,7 @@ public:
         
         queue<pair<string,int>> q; //name and level
         
-        map<string,bool> visit;
+        set<string> visit;
         //if beginword in not in adj list
         if(adj.find(beginWord)==adj.end())
         {
@@ -59,9 +59,9 @@ public:
             q.pop();
             for(int i=0;i<adj[word].size();i++)
             {
-                if(!visit[adj[word][i]])
+                if(visit.find(adj[word][i])==visit.end())
                 {
-                    visit[adj[word][i]]=1;
+                    visit.insert(adj[word][i]);
                     q.push({adj[word][i],level+1});
                     if(adj[word][i]==endWord)
                     {
